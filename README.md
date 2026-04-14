@@ -1,14 +1,42 @@
 # suricata-threat-detection-ai
+# 🛡️ Network Threat Detection with Suricata & AI
+
 Network threat detection using Suricata IDS with AI-powered alert analysis (SOC simulation lab)
 
-Project Structure:
+---
 
-suricata-threat-detection-ai/
-│
-├── README.md
-├── screenshots/
-├── scripts/
+## 📌 Project Overview
+This project simulates a Security Operations Center (SOC) workflow by detecting network threats using Suricata IDS and analyzing alerts using generative AI.  
 
+Suricata monitors network traffic and generates alerts, while a Python script sends log data to an AI model (Gemini API) to automatically interpret suspicious activity.
+
+---
+
+## 🎯 Objectives
+- Deploy and configure Suricata IDS  
+- Monitor network traffic and generate alerts  
+- Analyze Suricata logs (`eve.json`)  
+- Automate alert interpretation using AI  
+- Simulate real-world SOC alert triage  
+
+---
+
+## 🧰 Tools Used
+- Suricata (Intrusion Detection System)  
+- Kali Linux  
+- Python  
+- Google Gemini API (Generative AI)  
+- VirtualBox  
+
+---
+
+## ⚙️ Project Workflow
+
+### 1. Install and Verify Suricata
+```bash
+sudo apt update
+sudo apt install suricata -y
+suricata --build-info
 ## AI Analysis Output
 
 ![AI Output](screenshots/ai-analysis.png)
