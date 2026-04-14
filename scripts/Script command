@@ -1,0 +1,26 @@
+nano suricata_genai_assistant.py
+
+
+from google import genai
+
+# Initialize the client with a hardcoded API key
+client = genai.Client(api_key="A Personal API key ")  
+
+try:
+    # Open and read the Suricata log
+    with open("/var/log/suricata/eve.json", "r") as file:
+        alerts = file.read()[-5000:]
+
+    # Generate the analysis using Gemini 2.5 Flash
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=f"Analyze these Suricata security logs and summarize suspicious or notable activity:\n\n{alerts}"
+    )
+
+    print("\n[GenAI Threat Analysis:]\n")
+    print(response.text)
+
+except FileNotFoundError:
+    print("Error: The Suricata log file was not found at the specified path.")
+except Exception as e:
+    print(f"An error occurred: {e}")
